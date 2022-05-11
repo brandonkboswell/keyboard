@@ -1,0 +1,1 @@
+hs -A -c "toggleFocus('$1')"

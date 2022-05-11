@@ -5,8 +5,31 @@ local isInTerminal = function()
   return app == 'iTerm2' or app == 'Terminal'
 end
 
+isAppFocused = function(name)
+  app = hs.application.frontmostApplication()
+  appName = app:name()
+
+  return appName == name
+end
+
+toggleFocus = function(name)
+  if(isAppFocused(name)) then
+    app:hide();
+  else
+    hs.application.launchOrFocus(name)
+  end
+end
+
+hs.hotkey.bind({'ctrl'}, 'space', function()
+  toggleFocus('Obsidian')
+end)
+
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'space', function()
+  toggleFocus('Akiflow')
+end)
+
 -- Use option + h to delete previous word
-hs.hotkey.bind({'alt'}, 'h', function()
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'h', function()
   if isInTerminal() then
     keyUpDown({'ctrl'}, 'w')
   else
@@ -15,7 +38,7 @@ hs.hotkey.bind({'alt'}, 'h', function()
 end)
 
 -- Use option + l to delete next word
-hs.hotkey.bind({'alt'}, 'l', function()
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'l', function()
   if isInTerminal() then
     keyUpDown({}, 'escape')
     keyUpDown({}, 'd')
@@ -31,7 +54,7 @@ end)
 -- enabled in the terminal, it would break the standard control + u behavior.
 -- Therefore, we only enable this hotkey for non-terminal apps.
 local wf = hs.window.filter.new():setFilters({iTerm2 = false, Terminal = false})
-enableHotkeyForWindowsMatchingFilter(wf, hs.hotkey.new({'ctrl'}, 'u', function()
+enableHotkeyForWindowsMatchingFilter(wf, hs.hotkey.new({'alt', 'ctrl', 'cmd', 'shift'}, 'u', function()
   keyUpDown({'cmd'}, 'delete')
 end))
 
@@ -43,7 +66,7 @@ end))
 -- the end of the line (i.e., control+k). To maintain that very useful
 -- functionality, and to keep it on the home row, this hotkey binds control+; to
 -- delete to the end of the line.
-hs.hotkey.bind({'ctrl'}, ';', function()
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, ';', function()
   -- If we're in the terminal, then temporarily disable our custom control+k
   -- hotkey used for pane navigation, then fire control+k to delete to the end
   -- of the line, and then renable the control+k hotkey.
