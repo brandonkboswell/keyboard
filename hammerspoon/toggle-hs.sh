@@ -1,1 +1,1 @@
-hs -A -c "toggleFocus('$1')"
+/usr/local/bin/hs -A -c "toggleFocus('$1')"

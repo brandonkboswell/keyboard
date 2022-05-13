@@ -9,14 +9,23 @@ isAppFocused = function(name)
   app = hs.application.frontmostApplication()
   appName = app:name()
 
-  return appName == name
+  print('focused_app', appName)
+
+  return appName:lower() == name:lower()
 end
 
-toggleFocus = function(name)
+toggleFocus = function(name, altName)
+  print('toggleFocus', name)
   if(isAppFocused(name)) then
+    print('focused')
     app:hide();
   else
-    hs.application.launchOrFocus(name)
+    print('not focused')
+    if altName then
+      hs.application.launchOrFocus(altName)
+    else
+      hs.application.launchOrFocus(name)
+    end
   end
 end
 
@@ -26,6 +35,10 @@ end)
 
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'space', function()
   toggleFocus('Akiflow')
+end)
+
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 't', function()
+  toggleFocus('iTerm2', 'iTerm')
 end)
 
 -- Use option + h to delete previous word

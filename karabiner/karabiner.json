@@ -536,7 +536,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a spotify"
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Spotify'"
                                     }
                                 ],
                                 "type": "basic"
@@ -575,7 +575,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a Messages"
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Messages'"
                                     }
                                 ],
                                 "type": "basic"
@@ -614,7 +614,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a 'Google Chrome'"
+                                      "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Google Chrome'"
                                     }
                                 ],
                                 "type": "basic"
@@ -653,7 +653,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a \"Google Calendar\""
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Google Calendar'"
                                     }
                                 ],
                                 "type": "basic"
@@ -692,7 +692,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a zoom.us"
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'zoom.us'"
                                     }
                                 ],
                                 "type": "basic"
@@ -731,7 +731,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a Obsidian"
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Obsidian'"
                                     }
                                 ],
                                 "type": "basic"
@@ -770,7 +770,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a \"Sublime Text\""
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Sublime Text'"
                                     }
                                 ],
                                 "type": "basic"
@@ -809,7 +809,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a Akiflow"
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Akiflow'"
                                     }
                                 ],
                                 "type": "basic"
@@ -848,7 +848,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a Slack"
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Slack'"
                                     }
                                 ],
                                 "type": "basic"

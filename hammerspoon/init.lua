@@ -26,6 +26,8 @@ enableHotkeyForWindowsMatchingFilter = function(windowFilter, hotkey)
   end)
 end
 
+hs.ipc.cliInstall()
+
 require('keyboard.main')
 require('hs.ipc')
 
