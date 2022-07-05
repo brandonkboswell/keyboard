@@ -512,6 +512,84 @@
                                             "key_code": "open_bracket"
                                         },
                                         {
+                                            "key_code": "f"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "launcher_mode_v4",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "launcher_mode_v4",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open https://www.figma.com/files/recent"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "mandatory": []
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "open_bracket"
+                                        },
+                                        {
+                                            "key_code": "j"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "launcher_mode_v4",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "launcher_mode_v4",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open https://dorsata.atlassian.net/jira/software/c/projects/DOR/boards/2?quickFilter=3"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "mandatory": []
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "open_bracket"
+                                        },
+                                        {
                                             "key_code": "m"
                                         }
                                     ],
@@ -614,7 +692,7 @@
                                         }
                                     },
                                     {
-                                      "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Google Chrome'"
+                                        "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Google Chrome'"
                                     }
                                 ],
                                 "type": "basic"

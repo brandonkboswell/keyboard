@@ -33,12 +33,37 @@ hs.hotkey.bind({'ctrl'}, 'space', function()
   toggleFocus('Obsidian')
 end)
 
+
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '1', function()
+  hs.execute("open https://mail.google.com/mail/u/0/#inbox")
+end)
+
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '2', function()
+  hs.execute("open https://mail.google.com/mail/u/1/#inbox")
+end)
+
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '3', function()
+  hs.execute("open https://www.notion.so/dorsata/ac4230c7df3848118c54269308493230?v=5713ab04faa440d5b1314dd8bf4fc39f")
+end)
+
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '4', function()
+  hs.execute("open https://dorsata.atlassian.net/jira/software/c/projects/DOR/boards/2?quickFilter=3")
+end)
+
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '5', function()
+  hs.execute("open https://calendar.google.com/calendar/u/0/r")
+end)
+
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '6', function()
+  hs.execute("open https://www.figma.com/files/recent")
+end)
+
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'space', function()
   toggleFocus('Akiflow')
 end)
 
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 't', function()
-  toggleFocus('iTerm2', 'iTerm')
+  toggleFocus('Warp')
 end)
 
 -- Use option + h to delete previous word
