@@ -1,0 +1,435 @@
+// I no longer use o launching as RCMD has replaced that need for me, but if you ever want to use it here if the config snippet that I used.
+{
+    "description": "o Launcher",
+    "manipulators": [
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "f"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "open https://www.figma.com/files/recent"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "j"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "open https://dorsata.atlassian.net/jira/software/c/projects/DOR/boards/2?quickFilter=3"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "m"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Spotify'"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "i"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Messages'"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "g"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Google Chrome'"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "c"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Google Calendar'"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "z"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'zoom.us'"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "d"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Obsidian'"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "e"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Sublime Text'"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "a"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Arc'"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "modifiers": {
+                    "mandatory": []
+                },
+                "simultaneous": [
+                    {
+                        "key_code": "open_bracket"
+                    },
+                    {
+                        "key_code": "s"
+                    }
+                ],
+                "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v4",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "launcher_mode_v4",
+                        "value": 1
+                    }
+                },
+                {
+                    "shell_command": "/bin/sh /Users/brandonkboswell/.keyboard/hammerspoon/toggle-hs.sh 'Slack'"
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+  "entries": {
+    "tap": {
+      "homebrew/bundle": {
+        "revision": "4756e4c4cf95485c5ea4da27375946c1dac2c71d"
+      },
+      "homebrew/cask": {
+        "revision": "57f4000a286ec44c1fa36493eb3c8bd0f5c6443a"
+      }
+    },
+    "cask": {
+      "karabiner-elements": {
+        "version": "14.6.0",
+        "options": {
+          "full_name": "karabiner-elements"
+        }
+      },
+      "hammerspoon": {
+        "version": "0.9.97",
+        "options": {
+          "full_name": "hammerspoon"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "monterey": {
+        "HOMEBREW_VERSION": "3.5.7",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "Homebrew/homebrew-core": "72969170c7684dd1d0c2de3ff2f36882835f0505",
+        "CLT": "13.4.0.0.1.1651278267",
+        "Xcode": "13.4.1",
+        "macOS": "12.5"
+      }
+    }
+  }
+}

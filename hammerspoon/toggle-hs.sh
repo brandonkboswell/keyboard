@@ -1,1 +1,1 @@
-/usr/local/bin/hs -A -c "toggleFocus('$1')"
+/opt/homebrew/bin/hs -A -c "toggleFocus('$1')"
