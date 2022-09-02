@@ -58,13 +58,13 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '6', function()
   hs.execute("open https://www.figma.com/files/recent")
 end)
 
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'space', function()
---   toggleFocus('Akiflow')
--- end)
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'space', function()
+  toggleFocus('Akiflow')
+end)
 
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 't', function()
---   toggleFocus('Warp')
--- end)
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 't', function()
+  toggleFocus('Warp')
+end)
 
 -- Use option + h to delete previous word
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'h', function()
