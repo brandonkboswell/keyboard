@@ -2,7 +2,7 @@ local log = hs.logger.new('delete-words.lua', 'debug')
 
 local isInTerminal = function()
   app = hs.application.frontmostApplication():name()
-  return app == 'iTerm2' or app == 'Terminal'
+  return app == 'iTerm2' or app == 'Terminal' or app == 'WezTerm'
 end
 
 isAppFocused = function(name)
@@ -192,12 +192,13 @@ end)
 
 -- Use option + l to delete next word
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'l', function()
-  if isInTerminal() then
-    keyUpDown({}, 'escape')
-    keyUpDown({}, 'd')
-  else
+  -- if isInTerminal() then
+  --   keyUpDown({}, 'escape')
+  --   keyUpDown({}, 'd')
+  -- else
+  -- The above doesn't play well with VIM, so forward delete is likely better
     keyUpDown({'alt'}, 'forwarddelete')
-  end
+  -- end
 end)
 
 -- Use control + u to delete to beginning of line
