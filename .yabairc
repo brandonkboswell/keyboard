@@ -53,6 +53,8 @@ yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Camera Preview$" manage=off
+yabai -m rule --add app="^Adobe Photoshop 2023" manage=off
+yabai -m rule --add app="^Photoshop 2023" manage=off
 
 echo "yabai configuration loaded.."
 # YABAI_CERT=yabai-cert sh -c "$(curl -fsSL "https://git.io/update-yabai")" &

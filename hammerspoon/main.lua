@@ -2,7 +2,7 @@ local log = hs.logger.new('delete-words.lua', 'debug')
 
 local isInTerminal = function()
   app = hs.application.frontmostApplication():name()
-  return app == 'iTerm2' or app == 'Terminal' or app == 'WezTerm'
+  return app == 'WezTerm' or app == 'iTerm2' or app == 'Terminal'
 end
 
 isAppFocused = function(name)
@@ -78,6 +78,7 @@ end)
 --   os.execute("/opt/homebrew/bin/yabai -m window --focus west")
 -- end)
 
+
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'x', function()
   os.execute("/opt/homebrew/bin/yabai -m window --swap south || /opt/homebrew/bin/yabai -m window --swap east || /opt/homebrew/bin/yabai -m window --swap north || /opt/homebrew/bin/yabai -m window --swap west")
 end)
@@ -135,9 +136,9 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'return', function()
 end)
 
 -- toggle padding and gap
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'g', function()
-  os.execute("/opt/homebrew/bin/yabai -m space --toggle padding; /opt/homebrew/bin/yabai -m space --toggle gap")
-end)
+-- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'g', function()
+--   os.execute("/opt/homebrew/bin/yabai -m space --toggle padding; /opt/homebrew/bin/yabai -m space --toggle gap")
+-- end)
 
 -- float / unfloat window and center on screen
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '\\', function()
@@ -146,7 +147,7 @@ end)
 
 -- balance size of windows
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'r', function()
-  os.execute("/opt/homebrew/bin/yabai -m space --balance")
+  os.execute("/opt/homebrew/bin/yabai --restart-service")
 end)
 
 --
@@ -177,9 +178,9 @@ end)
 --   os.execute("open https://www.figma.com/files/recent")
 -- end)
 
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 't', function()
-  toggleFocus('iTerm2')
-end)
+-- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 't', function()
+--   toggleFocus('iTerm2')
+-- end)
 
 -- Use option + h to delete previous word
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'h', function()
