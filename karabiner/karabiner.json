@@ -274,9 +274,11 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "1",
+                                        "key_code": "open_bracket",
                                         "modifiers": [
-                                            "left_command"
+                                            "left_command",
+                                            "left_shift",
+                                            "left_control"
                                         ]
                                     }
                                 ],
@@ -369,9 +371,11 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "9",
+                                        "key_code": "close_bracket",
                                         "modifiers": [
-                                            "left_command"
+                                            "left_command",
+                                            "left_shift",
+                                            "left_control"
                                         ]
                                     }
                                 ],
