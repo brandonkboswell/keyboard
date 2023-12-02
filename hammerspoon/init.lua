@@ -26,9 +26,9 @@ enableHotkeyForWindowsMatchingFilter = function(windowFilter, hotkey)
   end)
 end
 
--- hs.ipc.cliInstall("/opt/homebrew")
+hs.ipc.cliInstall("/opt/homebrew")
 
 require('keyboard.main')
--- require('hs.ipc')
+require('hs.ipc')
 
 hs.notify.new({title='Hammerspoon', informativeText='Ready to rock!! 🤘'}):send()

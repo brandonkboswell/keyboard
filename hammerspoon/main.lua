@@ -22,6 +22,7 @@ toggleFocus = function(name, altName)
   else
     print('not focused')
     if altName then
+      print('Trying to focus', altName)
       hs.application.launchOrFocus(altName)
     else
       hs.application.launchOrFocus(name)
@@ -135,11 +136,6 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'return', function()
   end
 end)
 
--- toggle padding and gap
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'g', function()
---   os.execute("/opt/homebrew/bin/yabai -m space --toggle padding; /opt/homebrew/bin/yabai -m space --toggle gap")
--- end)
-
 -- float / unfloat window and center on screen
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '\\', function()
   os.execute("/opt/homebrew/bin/yabai -m window --toggle float; /opt/homebrew/bin/yabai -m window --grid 12:12:2:2:8:8")
@@ -154,33 +150,35 @@ end)
 -- Shortcuts
 --
 
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '1', function()
---   os.execute("open https://mail.google.com/mail/u/0/#inbox")
--- end)
+local apps = {
+  {shortcut = '1', name = '1Password'},
+  {shortcut = 'a', name = 'Akiflow'},
+  {shortcut = 'v', name = 'DaVinci Resolve'},
+  {shortcut = 'd', name = 'Discord'},
+  {shortcut = 'f', name = 'Finder'},
+  {shortcut = 'l', name = 'Loom'},
+  {shortcut = 'i', name = 'Messages'},
+  {shortcut = 'm', name = 'Music'},
+  {shortcut = 'o', name = 'Obsidian'},
+  {shortcut = 'p', name = 'Adobe Photoshop 2023'},
+  {shortcut = 'q', name = 'QuickTime Player'},
+  {shortcut = 'r', name = 'reMarkable'},
+  {shortcut = 'e', name = 'Code', altName = 'Visual Studio Code'},
+  {shortcut = 'z', name = 'zoom.us'},
+  {shortcut = 's', name = 'Slack'},
+  {shortcut = 't', name = 'Things', altName = '/Applications/Things3.app'},
+  {shortcut = 'g', name = 'Arc'},
+}
 
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '2', function()
---   os.execute("open https://mail.google.com/mail/u/1/#inbox")
--- end)
+-- loop through apps and bind shortcuts
+for i, app in ipairs(apps) do
 
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '3', function()
---   os.execute("open https://www.notion.so/dorsata/ac4230c7df3848118c54269308493230?v=5713ab04faa440d5b1314dd8bf4fc39f")
--- end)
+  hs.hotkey.bind({'alt', 'ctrl', 'shift'}, app.shortcut, function()
+    toggleFocus(app.name, app.altName)
+  end)
 
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '4', function()
---   os.execute("open https://dorsata.atlassian.net/jira/software/c/projects/DOR/boards/2?quickFilter=3")
--- end)
-
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '5', function()
---   os.execute("open https://calendar.google.com/calendar/u/0/r")
--- end)
-
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '6', function()
---   os.execute("open https://www.figma.com/files/recent")
--- end)
-
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 't', function()
---   toggleFocus('iTerm2')
--- end)
+  print('bound toggle shortcuts for:', app.name)
+end
 
 -- Use option + h to delete previous word
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'h', function()

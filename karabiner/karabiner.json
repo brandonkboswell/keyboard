@@ -18,6 +18,31 @@
                 },
                 "rules": [
                     {
+                        "manipulators": [
+                            {
+                                "description": "Change right command to control+option+shift.",
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control",
+                                        "modifiers": [
+                                            "left_option",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "S+D -> (S)uper(D)uper Mode",
                         "manipulators": [
                             {
