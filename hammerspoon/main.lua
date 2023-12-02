@@ -14,11 +14,32 @@ isAppFocused = function(name)
   return appName:lower() == name:lower()
 end
 
+-- create a array of app names that are troublesome to hide
+local troublesomeAppsToHide = {
+  "Arc"
+}
+
+isInTable = function(tbl, item)
+    for key, value in pairs(tbl) do
+        if value == item then return key end
+    end
+    return false
+end
+
 toggleFocus = function(name, altName)
   print('toggleFocus', name)
   if(isAppFocused(name)) then
-    print('focused')
-    app:hide();
+    print(name, 'is focused. Hiding')
+
+    if not app:hide() then
+      -- is this app a known troublesome app?
+      -- if so, issue CMD+H to hide it
+      if isInTable(troublesomeAppsToHide, name) then
+        -- Add this condition to check if the name is in the troublesomeApps array
+        hs.eventtap.keyStroke({"cmd"}, "H")
+        print('hiding', name, ' via Commmand+H')
+      end
+    end
   else
     print('not focused')
     if altName then
