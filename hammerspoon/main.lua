@@ -187,7 +187,7 @@ local apps = {
   {shortcut = 'e', name = 'Code', altName = 'Visual Studio Code'},
   {shortcut = 'z', name = 'zoom.us'},
   {shortcut = 's', name = 'Slack'},
-  {shortcut = 't', name = 'Code', altName = 'Visual Studio Code'},
+  {shortcut = 't', name = 'Wezterm'},
   {shortcut = 'g', name = 'Arc'},
 }
 
