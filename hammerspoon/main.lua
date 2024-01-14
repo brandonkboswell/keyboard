@@ -201,6 +201,18 @@ for i, app in ipairs(apps) do
   print('bound toggle shortcuts for:', app.name)
 end
 
+hs.hotkey.bind({'shift'}, 'delete', function()
+  print('forwarddelete')
+  keyUpDown({}, 'forwarddelete')
+end)
+
+-- Forward Delete on Hyper + Backspace
+-- Doesn't work for whatever reason
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'delete', function()
+  print('forwarddelete')
+  keyUpDown({}, 'forwarddelete')
+end)
+
 -- Use option + h to delete previous word
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'h', function()
   if isInTerminal() then
