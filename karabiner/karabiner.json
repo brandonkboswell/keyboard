@@ -63,6 +63,12 @@
                                     {
                                         "key_code": "g",
                                         "halt": true
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "superduper-mode",
+                                            "value": 0
+                                        }
                                     }
                                 ],
                                 "to_if_held_down": [
