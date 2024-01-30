@@ -31,22 +31,36 @@ toggleFocus = function(name, altName)
   if(isAppFocused(name)) then
     print(name, 'is focused. Hiding')
 
-    if not app:hide() then
-      -- is this app a known troublesome app?
-      -- if so, issue CMD+H to hide it
-      if isInTable(troublesomeAppsToHide, name) then
-        -- Add this condition to check if the name is in the troublesomeApps array
-        hs.eventtap.keyStroke({"cmd"}, "H")
-        print('hiding', name, ' via Commmand+H')
-      end
-    end
+    -- I'm investigating whether the app:hide call is the issue as this is a method to potentially mitigate that
+    hs.eventtap.keyStroke({"cmd"}, "H")
+
+    -- This is the technically correct way to do this, but it appear that something is making hammerspoon hang
+    -- if not app:hide() then
+    --   -- is this app a known troublesome app?
+    --   -- if so, issue CMD+H to hide it
+    --   if isInTable(troublesomeAppsToHide, name) then
+    --     -- Add this condition to check if the name is in the troublesomeApps array
+    --     hs.eventtap.keyStroke({"cmd"}, "H")
+    --     print('hiding', name, ' via Commmand+H')
+    --   end
+    -- end
   else
     print('not focused')
     if altName then
       print('Trying to focus', altName)
-      hs.application.launchOrFocus(altName)
+      local execute = "/usr/bin/open -a '"..altName.."'"
+      hs.execute(execute)
+
+      -- This has a tendency to hang from time to time
+      -- The shell is slower, but more reliable
+      -- hs.application.launchOrFocus(altName)
     else
-      hs.application.launchOrFocus(name)
+      local execute = "/usr/bin/open -a '"..name.."'"
+      hs.execute(execute)
+
+      -- This has a tendency to hang from time to time
+      -- The shell is slower, but more reliable
+      -- hs.application.launchOrFocus(name)
     end
   end
 end
@@ -182,7 +196,8 @@ local apps = {
   {shortcut = 'i', name = 'Messages'},
   {shortcut = 'm', name = 'Music'},
   {shortcut = 'o', name = 'Obsidian'},
-  {shortcut = 'p', name = 'Adobe Photoshop 2023'},
+  -- {shortcut = 'p', name = 'Adobe Photoshop 2023'},
+  {shortcut = 'p', name = 'Postico'},
   {shortcut = 'q', name = 'QuickTime Player'},
   {shortcut = 'r', name = 'reMarkable'},
   {shortcut = 'e', name = 'Code', altName = 'Visual Studio Code'},
