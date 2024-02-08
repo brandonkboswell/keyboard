@@ -84,7 +84,6 @@ end)
 
 -- focus window
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 's', function()
-  -- os.execute("/opt/homebrew/bin/yabai -m window --focus next || /opt/homebrew/bin/yabai -m window --focus first")
   output = hs.execute("/opt/homebrew/bin/yabai -m query --spaces --space | /opt/homebrew/bin/jq -r '.type'")
 
   print(output)
@@ -97,7 +96,6 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 's', function()
 end)
 
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'd', function()
-  -- os.execute("/opt/homebrew/bin/yabai -m window --focus prev || /opt/homebrew/bin/yabai -m window --focus last")
   output = hs.execute("/opt/homebrew/bin/yabai -m query --spaces --space | /opt/homebrew/bin/jq -r '.type'")
 
   if output == "stack\n" then
@@ -106,14 +104,6 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'd', function()
     os.execute("/opt/homebrew/bin/yabai -m window --focus prev || /opt/homebrew/bin/yabai -m window --focus last")
   end
 end)
-
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'f', function()
---   os.execute("/opt/homebrew/bin/yabai -m window --focus east")
--- end)
--- hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'a', function()
---   os.execute("/opt/homebrew/bin/yabai -m window --focus west")
--- end)
-
 
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'x', function()
   os.execute("/opt/homebrew/bin/yabai -m window --swap south || /opt/homebrew/bin/yabai -m window --swap east || /opt/homebrew/bin/yabai -m window --swap north || /opt/homebrew/bin/yabai -m window --swap west")
@@ -133,22 +123,20 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '=', function()
 end)
 
 -- Monitor
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'a', function()
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'f', function()
   os.execute("/opt/homebrew/bin/yabai -m display --focus prev || /opt/homebrew/bin/yabai -m display --focus last")
 end)
 
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'f', function()
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'a', function()
   os.execute("/opt/homebrew/bin/yabai -m display --focus next || /opt/homebrew/bin/yabai -m display --focus first")
 end)
 
 -- send window to monitor and follow focus
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'z', function()
-  os.execute("/opt/homebrew/bin/yabai -m window --display 2; /opt/homebrew/bin/yabai -m display --focus 2")
-  -- os.execute("/opt/homebrew/bin/yabai -m display --focus prev || /opt/homebrew/bin/yabai -m display --focus last; /opt/homebrew/bin/yabai -m window --display prev || /opt/homebrew/bin/yabai -m display --focus last")
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'v', function()
+  os.execute("/opt/homebrew/bin/yabai -m window --display prev || /opt/homebrew/bin/yabai -m window --display last; /opt/homebrew/bin/yabai -m display --focus prev || /opt/homebrew/bin/yabai -m display --focus last")
 end)
 
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'v', function()
-  -- os.execute("/opt/homebrew/bin/yabai -m window --display 1; /opt/homebrew/bin/yabai -m display --focus 1")
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'z', function()
   os.execute("/opt/homebrew/bin/yabai -m window --display next || /opt/homebrew/bin/yabai -m window --display first; /opt/homebrew/bin/yabai -m display --focus next || /opt/homebrew/bin/yabai -m display --focus first")
 end)
 
@@ -159,15 +147,12 @@ end)
 
 -- toggle window fullscreen zoom
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'return', function()
-  -- os.execute("/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen")
   output = hs.execute("/opt/homebrew/bin/yabai -m query --spaces --space | /opt/homebrew/bin/jq -r '.type'")
 
   if output == "stack\n" then
     os.execute("/opt/homebrew/bin/yabai -m space --layout bsp;")
-    -- os.execute("/opt/homebrew/bin/yabai -m space --layout bsp; /opt/homebrew/bin/yabai -m space --padding abs:15:15:15:15; /opt/homebrew/bin/yabai -m space --gap abs:15")
   else
     os.execute("/opt/homebrew/bin/yabai -m space --layout stack;")
-    -- os.execute("/opt/homebrew/bin/yabai -m space --layout stack; /opt/homebrew/bin/yabai -m space --padding abs:0:0:0:0; /opt/homebrew/bin/yabai -m space --gap abs:0")
   end
 end)
 
@@ -240,13 +225,12 @@ end)
 
 -- Use option + l to delete next word
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'l', function()
-  -- if isInTerminal() then
-  --   keyUpDown({}, 'escape')
-  --   keyUpDown({}, 'd')
-  -- else
-  -- The above doesn't play well with VIM, so forward delete is likely better
+  if isInTerminal() then
+    keyUpDown({}, 'escape')
+    keyUpDown({}, 'd')
+  else
     keyUpDown({'alt'}, 'forwarddelete')
-  -- end
+  end
 end)
 
 -- Use control + u to delete to beginning of line
