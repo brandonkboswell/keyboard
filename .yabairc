@@ -49,6 +49,7 @@ yabai -m rule --add title="^Akiflow - Akiflow - Cli$" manage=off
 yabai -m rule --add app="^Loom$" manage=off
 yabai -m rule --add app="^rcmd$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Camera Hub$" manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off

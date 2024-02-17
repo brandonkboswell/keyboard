@@ -178,6 +178,7 @@ local apps = {
   {shortcut = 'f', name = 'Finder'},
   -- {shortcut = 'l', name = 'Loom'},
   {shortcut = 'k', name = 'Keymapp'},
+  {shortcut = 'h', name = 'Camera Hub', altName = 'Elgato Camera Hub'},
   {shortcut = 'i', name = 'Messages'},
   {shortcut = 'm', name = 'Music'},
   {shortcut = 'o', name = 'Obsidian'},
