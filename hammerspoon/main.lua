@@ -190,6 +190,7 @@ local apps = {
   {shortcut = 'z', name = 'zoom.us'},
   {shortcut = 's', name = 'Slack'},
   {shortcut = 't', name = 'Wezterm'},
+  {shortcut = 'y', name = 'Tempo'},
   {shortcut = 'g', name = 'Arc'},
 }
 

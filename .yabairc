@@ -52,7 +52,7 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Camera Hub$" manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^CleanShot X$" manage=off
-yabai -m rule --add app="^Raycast$" manage=off
+@REM yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Camera Preview$" manage=off
 yabai -m rule --add app="^Adobe Photoshop 2023" manage=off
 yabai -m rule --add app="^Photoshop 2023" manage=off
