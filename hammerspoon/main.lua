@@ -123,20 +123,30 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, '=', function()
 end)
 
 -- Monitor
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'f', function()
-  os.execute("/opt/homebrew/bin/yabai -m display --focus prev || /opt/homebrew/bin/yabai -m display --focus last")
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'a', function()
+  output = os.execute("/opt/homebrew/bin/yabai -m display --focus west")
+
+  if output == nil then
+    print('At the edge, looping backward')
+    hs.execute("/opt/homebrew/bin/yabai -m display --focus 2")
+  end
 end)
 
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'a', function()
-  os.execute("/opt/homebrew/bin/yabai -m display --focus next || /opt/homebrew/bin/yabai -m display --focus first")
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'f', function()
+  output = os.execute("/opt/homebrew/bin/yabai -m display --focus east")
+
+  if output == nil then
+    print('At the edge, looping forward')
+    hs.execute("/opt/homebrew/bin/yabai -m display --focus 3")
+  end
 end)
 
 -- send window to monitor and follow focus
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'v', function()
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'z', function()
   os.execute("/opt/homebrew/bin/yabai -m window --display prev || /opt/homebrew/bin/yabai -m window --display last; /opt/homebrew/bin/yabai -m display --focus prev || /opt/homebrew/bin/yabai -m display --focus last")
 end)
 
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'z', function()
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'v', function()
   os.execute("/opt/homebrew/bin/yabai -m window --display next || /opt/homebrew/bin/yabai -m window --display first; /opt/homebrew/bin/yabai -m display --focus next || /opt/homebrew/bin/yabai -m display --focus first")
 end)
 
