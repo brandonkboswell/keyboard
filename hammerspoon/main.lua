@@ -9,8 +9,6 @@ isAppFocused = function(name)
   app = hs.application.frontmostApplication()
   appName = app:name()
 
-  print('focused_app', appName)
-
   return appName:lower() == name:lower()
 end
 
@@ -27,27 +25,22 @@ isInTable = function(tbl, item)
 end
 
 toggleFocus = function(name, altName)
-  print('toggleFocus', name)
   if(isAppFocused(name)) then
-    print(name, 'is focused. Hiding')
-
     -- I'm investigating whether the app:hide call is the issue as this is a method to potentially mitigate that
-    hs.eventtap.keyStroke({"cmd"}, "H")
+    -- Didn't help
+    -- hs.eventtap.keyStroke({"cmd"}, "H")
 
     -- This is the technically correct way to do this, but it appear that something is making hammerspoon hang
-    -- if not app:hide() then
-    --   -- is this app a known troublesome app?
-    --   -- if so, issue CMD+H to hide it
-    --   if isInTable(troublesomeAppsToHide, name) then
-    --     -- Add this condition to check if the name is in the troublesomeApps array
-    --     hs.eventtap.keyStroke({"cmd"}, "H")
-    --     print('hiding', name, ' via Commmand+H')
-    --   end
-    -- end
+    if not app:hide() then
+      -- is this app a known troublesome app?
+      -- if so, issue CMD+H to hide it
+      if isInTable(troublesomeAppsToHide, name) then
+        -- Add this condition to check if the name is in the troublesomeApps array
+        hs.eventtap.keyStroke({"cmd"}, "H")
+      end
+    end
   else
-    print('not focused')
     if altName then
-      print('Trying to focus', altName)
       local execute = "/usr/bin/open -a '"..altName.."'"
       hs.execute(execute)
 
@@ -85,8 +78,6 @@ end)
 -- focus window
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 's', function()
   output = hs.execute("/opt/homebrew/bin/yabai -m query --spaces --space | /opt/homebrew/bin/jq -r '.type'")
-
-  print(output)
 
   if output == "stack\n" then
     os.execute("/opt/homebrew/bin/yabai -m window --focus stack.next || /opt/homebrew/bin/yabai -m window --focus stack.first")
@@ -127,7 +118,6 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'a', function()
   output = os.execute("/opt/homebrew/bin/yabai -m display --focus west")
 
   if output == nil then
-    print('At the edge, looping backward')
     hs.execute("/opt/homebrew/bin/yabai -m display --focus 2")
   end
 end)
@@ -136,7 +126,6 @@ hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'f', function()
   output = os.execute("/opt/homebrew/bin/yabai -m display --focus east")
 
   if output == nil then
-    print('At the edge, looping forward')
     hs.execute("/opt/homebrew/bin/yabai -m display --focus 3")
   end
 end)
@@ -186,11 +175,11 @@ local apps = {
   {shortcut = 'v', name = 'DaVinci Resolve'},
   {shortcut = 'd', name = 'Discord'},
   {shortcut = 'f', name = 'Finder'},
-  -- {shortcut = 'l', name = 'Loom'},
+  {shortcut = 'l', name = 'Playlist'},
   {shortcut = 'k', name = 'Keymapp'},
   {shortcut = 'h', name = 'Camera Hub', altName = 'Elgato Camera Hub'},
   {shortcut = 'i', name = 'Messages'},
-  {shortcut = 'm', name = 'Music'},
+  {shortcut = 'm', name = 'Cider'},
   {shortcut = 'o', name = 'Obsidian'},
   -- {shortcut = 'p', name = 'Adobe Photoshop 2023'},
   {shortcut = 'p', name = 'Postico'},
@@ -210,19 +199,15 @@ for i, app in ipairs(apps) do
   hs.hotkey.bind({'alt', 'ctrl', 'shift'}, app.shortcut, function()
     toggleFocus(app.name, app.altName)
   end)
-
-  print('bound toggle shortcuts for:', app.name)
 end
 
 hs.hotkey.bind({'shift'}, 'delete', function()
-  print('forwarddelete')
   keyUpDown({}, 'forwarddelete')
 end)
 
 -- Forward Delete on Hyper + Backspace
 -- Doesn't work for whatever reason
 hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'delete', function()
-  print('forwarddelete')
   keyUpDown({}, 'forwarddelete')
 end)
 
